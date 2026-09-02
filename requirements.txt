@@ -1,0 +1,14 @@
+flask
+pandas
+gunicorn
+numpy
+matplotlib
+tensorflow.keras.models
+tensorflow.keras.layers
+sklearn.model.selection
+tensorflow.keras
+tensorflow.keras.optimizers
+tqdm.model
+pathlib
+PIL
+sklearn.metrics
