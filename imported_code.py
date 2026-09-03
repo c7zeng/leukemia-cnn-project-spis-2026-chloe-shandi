@@ -47,6 +47,10 @@ def test_model(file_path):
         ground_truth = "a cell with leukemia"
     
 
-    print("the model predicts this cell", result)
-    print("confidence:", (max(single_test_prediction[0][0], (1-single_test_prediction[0][0])))*100,"%")
-    print("an oncologist has identified this cell as", ground_truth)
+    # print("the model predicts this cell", result)
+    # print("confidence:", (max(single_test_prediction[0][0], (1-single_test_prediction[0][0])))*100,"%")
+    # print("an oncologist has identified this cell as", ground_truth)
+    
+    confidence = single_test_prediction[0][pred]*100
+
+    return result, confidence, ground_truth

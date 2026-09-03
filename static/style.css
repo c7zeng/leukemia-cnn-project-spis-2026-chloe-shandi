@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+nav {
+    background: #222;
+    padding: 20px;
+}
+
+nav h2 {
+    color: white;
+    display: inline;
+    margin-right: 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.slide {
+    min-width: 220px;
+}
+
+.slide input {
+    display: none;
+}
+
+.slide label {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background: white;
+}
+
+.slide input:checked + label {
+    border: 3px solid #333;
+}
+
+.slide img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+button {
+    font-size: 18px;
+    padding: 12px 30px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+.result {
+    background: white;
+    margin: 40px auto;
+    padding: 25px;
+    max-width: 500px;
+    border-radius: 10px;
+}

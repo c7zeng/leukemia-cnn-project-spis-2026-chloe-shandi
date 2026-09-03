@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leukemia CNN Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav>
+        <h2>Leukemia CNN</h2>
+        <a href="/">Model Demo</a>
+        <a href="/writeup">Lab Writeup</a>
+    </nav>
+
+    <main>
+
+        <h1>Leukemia CNN Model Demo</h1>
+
+        <p>Select a blood cell image and see what the trained CNN predicts.</p>
+
+        <form action="/analyze" method="POST">
+
+            <div class="carousel">
+
+                {% for image in images %}
+
+                <div class="slide">
+
+                    <input
+                        type="radio"
+                        name="image"
+                        value="{{ image }}"
+                        id="image{{ loop.index }}"
+                        required
+                    >
+
+                    <label for="image{{ loop.index }}">
+
+                        <img
+                            src="{{ url_for('demo_image', filename=image) }}"
+                            alt="{{ image }}"
+                        >
+
+                        <p>{{ image }}</p>
+
+                    </label>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            <button type="submit">
+                Analyze Image
+            </button>
+
+        </form>
+
+
+        {% if result %}
+
+        <div class="result">
+
+            <h2>Model Prediction</h2>
+
+            <h3>{{ result }}</h3>
+
+            <p>
+                Confidence:
+                <strong>{{ "%.2f"|format(confidence) }}%</strong>
+            </p>
+
+            <p>
+                Ground truth:
+                <strong>{{ ground_truth }}</strong>
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>
