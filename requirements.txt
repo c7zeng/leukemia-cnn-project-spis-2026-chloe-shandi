@@ -3,7 +3,5 @@ pandas
 gunicorn
 numpy
 matplotlib
-tqdm.model
 pathlib
 PIL
-sklearn.metrics
