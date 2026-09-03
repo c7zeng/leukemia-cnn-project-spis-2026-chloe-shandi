@@ -3,10 +3,8 @@ pandas
 gunicorn
 numpy
 matplotlib
-tensorflow.keras.layers
+tensorflow
 sklearn.model.selection
-tensorflow.keras
-tensorflow.keras.optimizers
 tqdm.model
 pathlib
 PIL
