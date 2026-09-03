@@ -3,7 +3,6 @@ pandas
 gunicorn
 numpy
 matplotlib
-sklearn.model.selection
 tqdm.model
 pathlib
 PIL
