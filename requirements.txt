@@ -3,7 +3,6 @@ pandas
 gunicorn
 numpy
 matplotlib
-tensorflow.keras.models
 tensorflow.keras.layers
 sklearn.model.selection
 tensorflow.keras
