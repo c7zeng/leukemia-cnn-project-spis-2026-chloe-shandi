@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Writeup | Leukemia CNN</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+    <h2>Leukemia CNN</h2>
+
+    <a href="/">Model Demo</a>
+    <a href="/writeup">Lab Writeup</a>
+</nav>
+
+<main>
+
+    <section class="writeup-header">
+        <p class="eyebrow">MACHINE LEARNING PROJECT</p>
+        <h1>Lab Writeup</h1>
+        <p>
+            Using convolutional neural networks to classify
+            microscopic blood-cell images.
+        </p>
+    </section>
+
+
+    <section class="writeup-section">
+        <span class="section-number">01</span>
+
+        <h2>Project Description</h2>
+
+        <p>
+            The goal of this machine learning project is to build a
+            convolutional neural network (CNN) capable of analyzing
+            microscopic blood-cell images and predicting whether cells
+            display signs of acute lymphoblastic leukemia (ALL), a common
+            pediatric cancer.
+        </p>
+
+        <p>
+            The scans were taken from imaging documentation collected by
+            the Cancer Imaging Archive. The dataset contains ground-truth
+            labels annotated by an oncologist, allowing each image to be
+            associated with its true classification.
+        </p>
+
+        <p>
+            Because of morphological similarity and the sheer quantity of
+            blood cells requiring inspection, a machine learning model
+            capable of assisting an oncologist—or serving as an initial
+            screening tool—could potentially improve the efficiency of
+            cancer-image analysis.
+        </p>
+    </section>
+
+
+    <section class="writeup-section">
+
+        <span class="section-number">02</span>
+
+        <h2>Process</h2>
+
+        <p>
+            Building this model required becoming familiar with TensorFlow,
+            NumPy, Matplotlib, Keras, Scikit-learn, and Pillow. These
+            libraries allowed us to manipulate images, organize data into
+            arrays, construct CNN models, train them, and visualize
+            training progress.
+        </p>
+
+        <h3>Image Preprocessing</h3>
+
+        <p>
+            The first step was to preprocess all 10,661 raw 300 × 300
+            pixel color images into a format that could be efficiently
+            processed by the CNN.
+        </p>
+
+        <div class="pipeline">
+            <div>300 × 300<br><small>Color Image</small></div>
+            <span>→</span>
+            <div>Cropped<br><small>Cell Region</small></div>
+            <span>→</span>
+            <div>128 × 128<br><small>Resized</small></div>
+            <span>→</span>
+            <div>Grayscale<br><small>Model Input</small></div>
+        </div>
+
+        <p>
+            We cropped the images to reduce the extra black space
+            surrounding each cell. The images were then resized to
+            128 × 128 pixels and converted to grayscale. This reduced the
+            amount of data that needed to be stored and processed while
+            preserving important morphological information.
+        </p>
+
+    </section>
+
+
+    <section class="writeup-section">
+
+        <span class="section-number">03</span>
+
+        <h2>Model Implementation</h2>
+
+        <p>
+            We began with a simple model to test our data-processing
+            pipeline. We then experimented with different layers, layer
+            sizes, kernel sizes, optimization algorithms, and loss
+            calculations to investigate how these choices affected model
+            performance and runtime.
+        </p>
+
+        <div class="model-diagram">
+
+            <div>INPUT<br><small>128 × 128 × 1</small></div>
+
+            <span>→</span>
+
+            <div>CONVOLUTION</div>
+
+            <span>→</span>
+
+            <div>POOLING</div>
+
+            <span>→</span>
+
+            <div>DENSE</div>
+
+            <span>→</span>
+
+            <div>OUTPUT<br><small>Binary Class</small></div>
+
+        </div>
+
+        <p>
+            We also implemented stratified 3-fold cross-validation to
+            obtain a more reliable estimate of model performance and
+            reduce the influence of chance variation in the training and
+            validation splits.
+        </p>
+
+    </section>
+
+
+    <section class="results">
+
+        <span class="section-number">04</span>
+
+        <h2>Results</h2>
+
+        <div class="accuracy">
+            72.33%
+            <span>Mean Balanced Accuracy</span>
+        </div>
+
+        <p>
+            After training, the CNN achieved a mean balanced accuracy of
+            72.33%. This is above the 50% chance level expected for a
+            binary classification problem.
+        </p>
+
+        <p>
+            However, this level of accuracy would not be sufficient for
+            clinical application. A model intended to assist with medical
+            diagnosis would require substantially higher accuracy,
+            extensive validation, and significantly more training data
+            and computational resources.
+        </p>
+
+    </section>
+
+
+    <section class="writeup-section">
+
+        <span class="section-number">05</span>
+
+        <h2>Data Credits</h2>
+
+        <p>
+            Gupta, A., & Gupta, R. (2019).
+            <em>ALL Challenge dataset of ISBI 2019</em>
+            [Data set]. The Cancer Imaging Archive.
+        </p>
+
+        <p>
+            DOI: 10.7937/tcia.2019.dc64i46r
+        </p>
+
+    </section>
+
+</main>
+
+</body>
+</html>

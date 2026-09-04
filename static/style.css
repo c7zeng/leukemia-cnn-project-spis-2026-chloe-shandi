@@ -1,25 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+
+/* =========================
+   GENERAL
+   ========================= */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Outfit', sans-serif;
     margin: 0;
     background: #f5f5f5;
+    color: #333;
     text-align: center;
-}
-
-nav {
-    background: #222;
-    padding: 20px;
-}
-
-nav h2 {
-    color: white;
-    display: inline;
-    margin-right: 40px;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 15px;
 }
 
 main {
@@ -27,53 +18,443 @@ main {
     margin: 40px auto;
 }
 
+
+/* =========================
+   NAVIGATION BAR
+   ========================= */
+
+nav {
+    background: #561869;
+    padding: 20px;
+}
+
+nav h2 {
+    color: white;
+    display: inline;
+    margin-right: 100px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: 400;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   CAROUSEL
+   ========================= */
+
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+}
+
 .carousel {
     display: flex;
-    overflow-x: auto;
-    gap: 25px;
-    padding: 30px;
-    margin: 30px 0;
+    justify-content: center;
+    gap: 20px;
+    width: 570px;
 }
 
-.slide {
-    min-width: 220px;
+.image-card {
+    width: 170px;
+    flex-shrink: 0;
 }
 
-.slide input {
-    display: none;
-}
+.image-button {
+    width: 170px;
+    height: 170px;
 
-.slide label {
-    cursor: pointer;
-    display: block;
-    padding: 10px;
-    border: 3px solid transparent;
-    border-radius: 10px;
+    padding: 8px;
+
     background: white;
-}
-
-.slide input:checked + label {
-    border: 3px solid #333;
-}
-
-.slide img {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-}
-
-button {
-    font-size: 18px;
-    padding: 12px 30px;
-    cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
+
+
+/* IMAGE HOVER */
+
+.image-button:hover {
+    transform: scale(1.06);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+/* IMAGE */
+
+.image-button img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   CAROUSEL ARROWS
+   ========================= */
+
+.arrow {
+    background: none;
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    padding: 10px;
+
+    transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.15);
+}
+
+
+/* =========================
+   RESULT CARD
+   ========================= */
 
 .result {
     background: white;
+
     margin: 40px auto;
     padding: 25px;
+
     max-width: 500px;
+
     border-radius: 10px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result h3 {
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   LAB WRITEUP PAGE
+   ========================================================= */
+
+
+/* =========================
+   WRITEUP HEADER
+   ========================= */
+
+.writeup-header {
+    padding: 50px 20px 30px;
+}
+
+.writeup-header h1 {
+    font-size: 48px;
+    margin: 10px 0;
+    color: #561869;
+}
+
+.writeup-header p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.eyebrow {
+    color: #561869 !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   WRITEUP SECTIONS
+   ========================= */
+
+.writeup-section {
+    background: white;
+
+    margin: 30px auto;
+    padding: 35px 45px;
+
+    max-width: 800px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+}
+
+.writeup-section h2 {
+    color: #561869;
+    font-size: 28px;
+    margin-top: 5px;
+}
+
+.writeup-section h3 {
+    color: #333;
+    margin-top: 30px;
+}
+
+.writeup-section p {
+    color: #444;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+
+/* =========================
+   SECTION NUMBERS
+   ========================= */
+
+.section-number {
+    color: #561869;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   PROJECT STATISTICS
+   ========================= */
+
+.stats {
+    display: flex;
+
+    justify-content: center;
+    gap: 15px;
+
+    margin: 30px auto;
+
+    max-width: 900px;
+}
+
+.stat {
+    background: white;
+
+    padding: 20px;
+
+    width: 150px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stat strong {
+    display: block;
+
+    color: #561869;
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+.stat span {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   IMAGE PREPROCESSING
+   ========================= */
+
+.pipeline {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 30px 0;
+
+    flex-wrap: wrap;
+}
+
+.pipeline div {
+    background: #f5f5f5;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-weight: 600;
+}
+
+.pipeline small {
+    color: #777;
+
+    font-weight: 400;
+}
+
+
+/* =========================
+   MODEL DIAGRAM
+   ========================= */
+
+.model-diagram {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin: 30px 0;
+
+    flex-wrap: wrap;
+}
+
+.model-diagram div {
+    background: #f5f5f5;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-weight: 600;
+}
+
+.model-diagram small {
+    color: #777;
+
+    font-weight: 400;
+}
+
+
+/* =========================
+   RESULTS SECTION
+   ========================= */
+
+.results {
+    background: #561869;
+
+    color: white;
+
+    margin: 30px auto;
+
+    padding: 40px 45px;
+
+    max-width: 800px;
+
+    border-radius: 14px;
+
+    text-align: left;
+}
+
+.results h2 {
+    font-size: 28px;
+}
+
+.results p {
+    line-height: 1.7;
+}
+
+.results .section-number {
+    color: white;
+}
+
+
+/* BIG ACCURACY NUMBER */
+
+.accuracy {
+    text-align: center;
+
+    font-size: 55px;
+
+    font-weight: 700;
+
+    margin: 30px 0;
+}
+
+.accuracy span {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    nav h2 {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat {
+        width: 200px;
+    }
+
+    .writeup-section,
+    .results {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        padding: 25px;
+    }
+
+    .writeup-header h1 {
+        font-size: 38px;
+    }
+
+    .model-diagram {
+        flex-direction: column;
+    }
+
+    .pipeline {
+        flex-direction: column;
+    }
 }

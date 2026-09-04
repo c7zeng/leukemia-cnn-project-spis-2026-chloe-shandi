@@ -9,7 +9,7 @@
 <body>
 
     <nav>
-        <h2>Leukemia CNN</h2>
+        <h2>Leukemia CNN Model</h2>
         <a href="/">Model Demo</a>
         <a href="/writeup">Lab Writeup</a>
     </nav>
@@ -18,63 +18,65 @@
 
         <h1>Leukemia CNN Model Demo</h1>
 
-        <p>Select a blood cell image and see what the trained CNN predicts.</p>
+        <p>Click an image to test the trained model.</p>
 
-        <form action="/analyze" method="POST">
+        <div class="carousel-container">
+
+            <button class="arrow" type="button" onclick="previousSlide()">
+                &#10094;
+            </button>
 
             <div class="carousel">
 
                 {% for image in images %}
 
-                <div class="slide">
+                <form action="/analyze" method="POST" class="image-card">
 
                     <input
-                        type="radio"
+                        type="hidden"
                         name="image"
                         value="{{ image }}"
-                        id="image{{ loop.index }}"
-                        required
                     >
 
-                    <label for="image{{ loop.index }}">
+                    <button type="submit" class="image-button">
 
                         <img
                             src="{{ url_for('demo_image', filename=image) }}"
-                            alt="{{ image }}"
+                            alt="Blood cell"
                         >
 
-                        <p>{{ image }}</p>
+                    </button>
 
-                    </label>
-
-                </div>
+                </form>
 
                 {% endfor %}
 
             </div>
 
-            <button type="submit">
-                Analyze Image
+            <button class="arrow" type="button" onclick="nextSlide()">
+                &#10095;
             </button>
 
-        </form>
+        </div>
 
 
         {% if result %}
 
         <div class="result">
 
-            <h2>Model Prediction</h2>
+            <p>
+                model prediction: 
+                <strong>{{ result }}</strong>
+            </p>
 
-            <h3>{{ result }}</h3>
 
             <p>
-                Confidence:
+                confidence level:
                 <strong>{{ "%.2f"|format(confidence) }}%</strong>
             </p>
 
             <p>
-                Ground truth:
+                oncologist identification:
                 <strong>{{ ground_truth }}</strong>
             </p>
 
@@ -83,6 +85,59 @@
         {% endif %}
 
     </main>
+
+
+    <script>
+
+        let currentSlide = 0;
+
+        const cards = document.querySelectorAll(".image-card");
+
+
+        function showSlides() {
+
+            cards.forEach(card => {
+                card.style.display = "none";
+            });
+
+            for (let i = 0; i < 3; i++) {
+
+                const index = currentSlide + i;
+
+                if (index < cards.length) {
+                    cards[index].style.display = "block";
+                }
+
+            }
+
+        }
+
+
+        function nextSlide() {
+
+            if (currentSlide < cards.length - 3) {
+                currentSlide++;
+                showSlides();
+            }
+
+        }
+
+
+        function previousSlide() {
+
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlides();
+            }
+
+        }
+
+
+        showSlides();
+
+    </script>
+
+
 
 </body>
 
